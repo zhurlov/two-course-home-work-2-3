@@ -6,7 +6,7 @@ public class Bus extends Transport {
     }
 
     public void refill(){
-        System.out.println(" можно заправлять бензином или дизелем на заправке");
+        System.out.println("можно заправлять бензином или дизелем на заправке");
     }
 
     public String toString() {

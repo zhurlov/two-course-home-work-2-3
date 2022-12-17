@@ -5,43 +5,21 @@ public abstract class Transport {
     private int maximumMovementSpeed;
 
     public Transport(String model,String bodyColor, int maximumMovementSpeed) {
-        this.model = model;
-        this.bodyColor = bodyColor;
-        //this.maximumMovementSpeed = maximumMovementSpeed;
-        if (maximumMovementSpeed == 0 || maximumMovementSpeed <= -1){
-            this.maximumMovementSpeed = 60;
-        }else {
-            this.maximumMovementSpeed = maximumMovementSpeed;
-
-        }
+        this.model = Validate.validateString(model, "некорректные данные");
+        this.bodyColor = Validate.validateString(bodyColor, "некорректные данные");
+        this.maximumMovementSpeed = Validate.validateInt(maximumMovementSpeed, 60);
     }
-
     public abstract void refill();
 
     public String getModel() {
-        if ( model == null || model.isEmpty()){
-            this.model = "некорректные данные";
-        }
         return model;
     }
 
     public int getMaximumMovementSpeed() {
-        if (maximumMovementSpeed == 0 || maximumMovementSpeed <= -1){
-            this.maximumMovementSpeed = 60;
-        }
-
         return maximumMovementSpeed;
     }
 
-//    public void setMaximumMovementSpeed(int maximumMovementSpeed) {
-//            this.maximumMovementSpeed = maximumMovementSpeed;
-//    }
-
     public String getBodyColor() {
-        if ( bodyColor == null || bodyColor.isEmpty()){
-            this.bodyColor = "некорректные данные";
-        }
-
         return bodyColor;
     }
 

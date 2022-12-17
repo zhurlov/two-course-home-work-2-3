@@ -8,21 +8,19 @@ public class Car extends Transport {
 
     public Car(int yearOfIssue) {
         this("Challenger", 1965, "America");
-        //this.yearOfIssue = yearOfIssue;
     }
 
     public Car(String brand, int yearOfIssue, String countryOfOrigin) {
         super("Tugella", "gray green",  320);
         setBrand(brand);
-        this.brand = brand;
-        this.yearOfIssue = yearOfIssue;
-        this.countryOfOrigin = countryOfOrigin;
+        this.brand = Validate.validateString(brand, "ОШИБКА");
+        this.yearOfIssue = Validate.validateInt(yearOfIssue, 2022);
+        this.countryOfOrigin = Validate.validateString(countryOfOrigin, "УКАЖИТЕ СТРАНУ" );
     }
 
     public void refill(){
         System.out.println("можно заправлять бензином, дизелем");
         System.out.println("для электрокаров заряжаться на специальный электропарковках");
-
     }
 
     public String getBrand() {
@@ -30,23 +28,15 @@ public class Car extends Transport {
     }
 
     public void setBrand(String brand) {
-        if (brand == null || brand.isEmpty()){
-            this.brand = "не верно заполнена поле";
-
-        } else {
             this.brand = brand;
-        }
     }
-
 
     public int getYearOfIssue() {
         return yearOfIssue;
     }
 
     public void setYearOfIssue(int yearOfIssue) {
-        if (yearOfIssue == 0 || yearOfIssue <= -1){
-            this.yearOfIssue = LocalDate.now().getDayOfYear();
-        }
+            this.yearOfIssue = yearOfIssue;
     }
 
     public String getCountryOfOrigin() {
@@ -56,5 +46,4 @@ public class Car extends Transport {
     public String toString() {
         return brand + " " + getModel() + " " + yearOfIssue + " " + countryOfOrigin + " " + getBodyColor() + " " + getMaximumMovementSpeed() ;
     }
-
 }

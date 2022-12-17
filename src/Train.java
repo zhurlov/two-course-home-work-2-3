@@ -9,20 +9,20 @@ public class Train extends Car {
 
     public Train(String brand, int yearOfIssue, String countryOfOrigin, int tripPrice, double travelTime, String stationName, String endingStation, int numberOfWagons) {
         super("Ленинград D-125", 2019, "Россия");
-        this.tripPrice = tripPrice;
-        this.travelTime = travelTime;
-        this.stationName = stationName;
-        this.endingStation = endingStation;
-        this.numberOfWagons = numberOfWagons;
+        this.tripPrice = Validate.validateInt(tripPrice, 0);
+        this.travelTime = Validate.validateDouble(travelTime, 0);
+        this.stationName = Validate.validateString(stationName, "ОШИБКА");
+        this.endingStation = Validate.validateString(endingStation, "ОШИБКА");
+        this.numberOfWagons = Validate.validateInt(numberOfWagons, 0);
     }
 
     public Train(int tripPrice, double travelTime, String stationName, String endingStation, int numberOfWagons) {
         super("Ласточка B -901", 2011, "Россия");
-        this.tripPrice = tripPrice;
-        this.travelTime = travelTime;
-        this.stationName = stationName;
-        this.endingStation = endingStation;
-        this.numberOfWagons = numberOfWagons;
+        this.tripPrice = Validate.validateInt(tripPrice, 0);
+        this.travelTime = Validate.validateDouble(travelTime, 0);
+        this.stationName = Validate.validateString(stationName, "ОШИБКА");
+        this.endingStation = Validate.validateString(endingStation, "ОШИБКА");
+        this.numberOfWagons = Validate.validateInt(numberOfWagons, 0);
 
     }
     public void refill(){
@@ -30,17 +30,11 @@ public class Train extends Car {
     }
 
     public int getTripPrice() {
-        this.tripPrice = tripPrice;
-        if (tripPrice == 0 || tripPrice <= -1){
-            this.tripPrice = 15;
-        }
         return tripPrice;
     }
 
     public void setTripPrice(int tripPrice) {
-        if (tripPrice != 0 && tripPrice != -1){
             this.tripPrice = tripPrice;
-        }
     }
 
     public double getTravelTime() {
