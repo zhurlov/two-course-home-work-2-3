@@ -2,14 +2,10 @@ public class Flightless extends Birds {
     private String movementType;
 
     public String getMovementType() {
-        if (movementType == null || movementType.isEmpty()){
-            this.movementType = movementType;
-        }
+        Validate.validateString(movementType, "ОШИБКА");
         return movementType;
     }
-
-
     public static void walk(){
-
+        System.out.println("Нелетающие птицы — птицы, утратившие в процессе эволюции способность к полёту");
     }
 }

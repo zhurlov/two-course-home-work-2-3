@@ -2,16 +2,10 @@ public class Predators extends Mammals {
     private String typeOfFood;
 
     public String getTypeOfFood() {
-        if (typeOfFood == null || typeOfFood.isEmpty()){
-            this.typeOfFood = "ошибка";
-        }
+        Validate.validateString(typeOfFood, "ОШИБКА");
         return typeOfFood;
     }
-
-
     public static void hunt(){
-
+        System.out.println("преследуют жертву до ее полного изнеможения");
     }
-
-
 }

@@ -1,41 +1,28 @@
 import java.time.LocalDate;
 
-public class Animals {
+public abstract class  Animals {
     private String animalName;
     private int numberOfYears;
 
     public String getAnimalName() {
-        if (animalName == null || animalName.isEmpty()){
-            this.animalName = "ошибка";
-        }
+        Validate.validateString(animalName, "ОШИБКА");
         return animalName;
     }
 
     public int getNumberOfYears() {
-        this.numberOfYears = LocalDate.now().getYear() -numberOfYears;
+        Validate.validateInt(numberOfYears, 0);
+        this.numberOfYears = LocalDate.now().getYear() - numberOfYears;
         return numberOfYears;
     }
 
     public void setNumberOfYears(int numberOfYears) {
-        if (numberOfYears != 0){
-            this.numberOfYears = numberOfYears;
-        } else {
-            this.numberOfYears = 18;
-        }
+        Validate.validateInt(numberOfYears, 18);
     }
 
-    public static void sleep(){
-
-    }
-    public static void move(){
-
-    }
+    public abstract void sleep();
+    public abstract void move();
     public static String eat(String eat){
         return eat;
     }
-
-    public void eat(){
-
-    }
-
+    public abstract void eat();
 }

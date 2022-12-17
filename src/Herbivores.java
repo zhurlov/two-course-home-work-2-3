@@ -4,15 +4,11 @@ public class Herbivores extends Mammals {
     private String typeOfFood;
 
     public String getTypeOfFood() {
-        if (typeOfFood == null || typeOfFood.isEmpty()){
-            this.typeOfFood = "ошибка";
-        }
+        Validate.validateString(typeOfFood, "ОШИБКА");
         return typeOfFood;
     }
-
-
     public static void graze(){
-
+        System.out.println("пастись стадами");
     }
 
     @Override
@@ -37,7 +33,5 @@ public class Herbivores extends Mammals {
     @Override
     public  void eat(){
         return;
-
     }
-
 }

@@ -2,14 +2,10 @@ public class Flying extends Birds {
     private String movementType;
 
     public String getMovementType() {
-        if (movementType == null || movementType.isEmpty()){
-            this.movementType = movementType;
-        }
+        Validate.validateString(movementType, "ОШИБКА");
         return movementType;
     }
-
-
     public static void fly(){
-
+        System.out.println("парящий");
     }
 }
